@@ -11,6 +11,17 @@
   <div class="max-w-6xl mx-auto p-6">
     <h1 class="text-3xl font-bold mb-6 text-center text-indigo-600">Welcome to Show All View</h1>
 
+    <form action="<?=site_url('show_all');?>" method="get" class="col-sm-4 float-end d-flex">
+      <?php
+      $q = '';
+      if(isset($_GET['q'])) {
+        $q = $_GET['q'];
+      }
+      ?>
+          <input class="form-control me-2" name="q" type="text" placeholder="Search" value="<?=html_escape($q);?>">
+          <button type="submit" class="btn btn-primary" type="button">Search</button>
+    </form>
+
     <div class="overflow-x-auto shadow-lg rounded-lg bg-white">
       <table class="min-w-full table-auto border-collapse">
         <thead class="bg-indigo-500 text-white">

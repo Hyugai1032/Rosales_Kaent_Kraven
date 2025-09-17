@@ -43,7 +43,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-$router->get('/', 'UserController::index');
+$router->get('/', 'UserController::show_all');
 $router->get('/show_all', 'UserController::show_all');
 $router->get('/add_record', 'UserController::add_record');
 $router->post('/add_record/submit', 'UserController::add_data');

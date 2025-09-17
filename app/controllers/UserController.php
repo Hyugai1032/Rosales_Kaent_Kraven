@@ -17,7 +17,32 @@ class UserController extends Controller {
     }
 
     function show_all(){
-        $users = $this->UserModel->order_by('id', 'ASC');
+       $page = 1;
+        if(isset($_GET['page']) && ! empty($_GET['page'])) {
+            $page = $this->io->get('page');
+        }
+
+        $q = '';
+        if(isset($_GET['q']) && ! empty($_GET['q'])) {
+            $q = trim($this->io->get('q'));
+        }
+
+        $records_per_page = 10;
+
+        $all = $this->author_model->page($q, $records_per_page, $page);
+        $users['all'] = $all['records'];
+        $total_rows = $all['total_rows'];
+        $this->pagination->set_options([
+            'first_link'     => '⏮ First',
+            'last_link'      => 'Last ⏭',
+            'next_link'      => 'Next →',
+            'prev_link'      => '← Prev',
+            'page_delimiter' => '&page='
+        ]);
+        $this->pagination->set_theme('tailwind'); // or 'tailwind', or 'custom'
+        $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('show_all').'?q='.$q);
+        $users['page'] = $this->pagination->paginate();
+        $this->call->view('authors', $users);
         return $this->call->view('show_all', ['users' => $users]);
     }
 
