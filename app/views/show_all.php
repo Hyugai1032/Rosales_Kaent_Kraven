@@ -22,6 +22,8 @@
           <button type="submit" class="btn btn-primary" type="button">Search</button>
     </form>
 
+    <br> <br>
+
     <div class="overflow-x-auto shadow-lg rounded-lg bg-white">
       <table class="min-w-full table-auto border-collapse">
         <thead class="bg-indigo-500 text-white">
@@ -34,7 +36,7 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-          <?php foreach($users as $user): ?>
+          <?php foreach($users['all'] as $user): ?>
           <tr class="hover:bg-gray-50">
             <td class="px-4 py-2"> <?= html_escape($user['id']) ?></td>
             <td class="px-4 py-2"> <?= html_escape($user['first_name']) ?></td>
