@@ -51,6 +51,8 @@
         </tbody>
       </table>
     </div>
+    <?php 
+      echo $page;?>
 
     <div class="mt-6 text-center">
       <a href="<?= site_url('/add_record')?>">
