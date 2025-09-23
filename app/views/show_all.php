@@ -36,7 +36,7 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-          <?php foreach($user as $users): ?>
+          <?php foreach(html_escape($user) as $users): ?>
           <tr class="hover:bg-gray-50">
             <td class="px-4 py-2"> <?= html_escape($users['id']) ?></td>
             <td class="px-4 py-2"> <?= html_escape($users['first_name']) ?></td>
