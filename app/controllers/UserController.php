@@ -40,7 +40,7 @@ class UserController extends Controller {
             'page_delimiter' => '&page='
         ]);
         $this->pagination->set_theme('tailwind'); // or 'tailwind', or 'custom'
-        $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('show_all').'show_all?q='.$q);
+        $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('show_all').'?q='.$q);
         $data['page'] = $this->pagination->paginate();
         return $this->call->view('show_all', $data);
     }
