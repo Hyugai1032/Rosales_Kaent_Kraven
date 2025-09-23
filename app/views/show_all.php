@@ -52,7 +52,7 @@
       </table>
 
       <?php 
-      echo $user['page'];?>
+      echo $page;?>
     </div>
 
     
