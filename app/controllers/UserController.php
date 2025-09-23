@@ -29,9 +29,9 @@ class UserController extends Controller {
 
         $records_per_page = 10;
 
-        $all = $this->UserModel->page($q, $records_per_page, $page);
-        $users['all'] = $all['records'];
-        $total_rows = $all['total_rows'];
+        $user = $this->UserModel->page($q, $records_per_page, $page);
+        $data['user'] = $user['records'];
+        $total_rows = $user['total_rows'];
         $this->pagination->set_options([
             'first_link'     => '⏮ First',
             'last_link'      => 'Last ⏭',
@@ -40,9 +40,9 @@ class UserController extends Controller {
             'page_delimiter' => '&page='
         ]);
         $this->pagination->set_theme('tailwind'); // or 'tailwind', or 'custom'
-        $this->pagination->initialize($total_rows, $records_per_page, $page, 'show_all?q='.$q);
+        $this->pagination->initialize($total_rows, $records_per_page, $page, site_url('').'show_all?q='.$q);
         $users['page'] = $this->pagination->paginate();
-        return $this->call->view('show_all', ['users' => $users]);
+        return $this->call->view('show_all', $data);
     }
 
     function add_record(){
