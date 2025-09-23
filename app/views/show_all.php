@@ -11,7 +11,7 @@
   <div class="max-w-6xl mx-auto p-6">
     <h1 class="text-3xl font-bold mb-6 text-center text-indigo-600">Welcome to Show All View</h1>
 
-    <form action="<?=site_url('show_all');?>" method="get" class="col-sm-4 float-end d-flex">
+    <form action="show_all" method="get" class="col-sm-4 float-end d-flex">
       <?php
       $q = '';
       if(isset($_GET['q'])) {
