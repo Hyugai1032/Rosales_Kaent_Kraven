@@ -36,15 +36,15 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-          <?php foreach($users['all'] as $user): ?>
+          <?php foreach($user as $users): ?>
           <tr class="hover:bg-gray-50">
-            <td class="px-4 py-2"> <?= html_escape($user['id']) ?></td>
-            <td class="px-4 py-2"> <?= html_escape($user['first_name']) ?></td>
-            <td class="px-4 py-2"> <?= html_escape($user['last_name']) ?></td>
-            <td class="px-4 py-2"> <?= html_escape($user['email']) ?></td>
+            <td class="px-4 py-2"> <?= html_escape($users['id']) ?></td>
+            <td class="px-4 py-2"> <?= html_escape($users['first_name']) ?></td>
+            <td class="px-4 py-2"> <?= html_escape($users['last_name']) ?></td>
+            <td class="px-4 py-2"> <?= html_escape($users['email']) ?></td>
             <td class="px-4 py-2">
-              <a href="<?= site_url('/update_record/'.$user['id'])?>" class="text-blue-600 hover:underline">Update</a> |
-              <a href="<?= site_url('/delete_record/'.$user['id'])?>" class="text-red-600 hover:underline">Delete</a>
+              <a href="<?= site_url('/update_record/'.$users['id'])?>" class="text-blue-600 hover:underline">Update</a> |
+              <a href="<?= site_url('/delete_record/'.$users['id'])?>" class="text-red-600 hover:underline">Delete</a>
             </td>
           </tr>
           <?php endforeach;?>
