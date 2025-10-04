@@ -43,10 +43,29 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-$router->get('/', 'UserController::show_all');
-$router->get('/show_all', 'UserController::show_all');
+$router->get('/', 'AuthController::login');
+
+//Auth
+$router->get('/auth/login', 'AuthController::login');
+$router->post('/auth/login', 'AuthController::login');
+$router->get('/auth/register', 'AuthController::register');
+$router->post('/auth/register', 'AuthController::register');
+$router->get('/auth/logout', 'AuthController::logout');
+
+
+$router->get('/auth/dashboard', 'AuthController::dashboard');
+$router->get('/snake', 'GameController::snake');
+$router->post('/snake/play', 'GameController::snake');
+$router->get('/leaderboard', 'GameController::highscores');
+$router->get('/my-scores', 'GameController::my_scores');
+$router->post('/snake/save_score', 'GameController::save_score');
+$router->post('/profile/manage', 'UserController::profile');
+$router->get('/profile/manage', 'UserController::profile');
+$router->get('/profile', 'UserController::view_profile');
+
+$router->get('/admin/manage_users', 'UserController::show_all');
 $router->get('/add_record', 'UserController::add_record');
-$router->post('/add_record/submit', 'UserController::add_data');
+$router->post('/add_record/submit', 'UserController::add_record');
 $router->get('/update_record/{id}', 'UserController::update_record');
 $router->post('/update_record/submit', 'UserController::update_data');
 $router->get('/delete_record/{id}', 'UserController::delete_record');
